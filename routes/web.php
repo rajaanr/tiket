@@ -5,7 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\TicketController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -39,13 +39,18 @@ Route::group(['middleware' => ['auth'=>'role:admin']], function(){
     Route::get('/addticket',[DashboardController::class,'add']);
     Route::get('/buyticket',[DashboardController::class,'buy']);
     Route::get('/generate',[DashboardController::class,'generate']);
+    Route::get('/buy-ad',[TicketController::class,'beli']);
+    
 });
 Route::group(['middleware' => ['auth'=>'role:operator']], function(){
     Route::get('/addticket2',[DashboardController::class,'add']);
     Route::get('/buyticket2',[DashboardController::class,'buy']);
+    Route::get('/buy-op',[TicketController::class,'beli']);
 });
 Route::group(['middleware' => ['auth'=>'role:customer']], function(){
     Route::get('/buyticket3',[DashboardController::class,'buy']);
+    Route::get('/buy-cs',[TicketController::class,'beli']);
+
 });
 
 

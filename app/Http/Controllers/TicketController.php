@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\Ticket;
 
 class TicketController extends Controller
 {
@@ -14,8 +15,17 @@ class TicketController extends Controller
         $ticket->status = 'booked'; 
         $ticket->save();
         $request->session()->flash('success','Register berhasil!');
-        return view('/addticket');
+        return view('/');
     
+    }
+
+    public function addticket(){
+        return view('ticket/addticket');
+    }
+
+    public function beli ($id) {
+        $ticket = Ticket::find($id);
+        return view('ticket/beli',compact('ticket'));
     }
 }
 
