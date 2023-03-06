@@ -6,12 +6,13 @@
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/preloader.css') }}" rel="stylesheet">
     @yield('style')
   </head>
   <body>
-
+    {{-- <div id="preloader"></div> --}}
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Company name</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Welcome, {{ auth()->user()->name }}</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -67,7 +68,7 @@
                   Home
                 </a>
               </li>
-              
+
             </ul>
           </div>
           @endif
@@ -99,7 +100,7 @@
                   Home
                 </a>
               </li>
-            
+
               @endif
               @if (auth()->user()->role == 'customer')
               <div class="position-sticky pt-3 sidebar-sticky">
@@ -124,27 +125,30 @@
                     </a>
                   </li>
                 </div>
-                  
+
               @endif
-              
+
             </ul>
           </div>
 
 
 
       @endauth
-      
+
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
      <div class=" mt-4">
       @yield('isi')
     </div>
-    
+
     </main>
   </div>
 </div>
 
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<script>
+
+</script>
   </body>
 </html>

@@ -13,5 +13,10 @@ class Ticket extends Model
 
     protected $fillable = ['id','id_category','name','quota','date'];
 
-      
+
+        public function category (){
+            return $this->belongsTo(Category::class,);
+        }
+
 }
+

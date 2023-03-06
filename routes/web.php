@@ -37,10 +37,11 @@ Route::group(['middleware' => ['auth']], function(){
 });
 Route::group(['middleware' => ['auth'=>'role:admin']], function(){
     Route::get('/addticket',[DashboardController::class,'add']);
+    Route::post('/addticket',[TicketController::class,'storeticketadmin']);
     Route::get('/buyticket',[DashboardController::class,'buy']);
     Route::get('/generate',[DashboardController::class,'generate']);
-    Route::get('/buy-ad',[TicketController::class,'beli']);
-    
+    Route::get('buy/{id}',[TicketController::class,'beli']);
+
 });
 Route::group(['middleware' => ['auth'=>'role:operator']], function(){
     Route::get('/addticket2',[DashboardController::class,'add']);
