@@ -12,4 +12,8 @@ class CategoryTicket extends Model
     protected $table = 'category_ticket';
 
     protected $fillable = ['id','category'];
+
+    public function ticket(){
+        return $this->hasMany(Ticket::class);
+    }
 }

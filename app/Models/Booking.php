@@ -13,6 +13,5 @@ class Booking extends Model
     protected $fillable = [
         'qty','amount','id_users'
     ];
-
     
 }

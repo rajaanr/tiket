@@ -30,7 +30,7 @@ class TicketController extends Controller
     }
 
 
-    public function storeticketadmin(Request $request){
+    public function storeticket(Request $request){
         $request->validate([
             'name' => 'required',
             'date' => 'required',
@@ -52,6 +52,12 @@ class TicketController extends Controller
 
         return redirect('/addticket')->with('success','Tiket berhasil Dibuat');
 
+    }
+
+
+    public function belitiket(){
+        $item = new Booking();
+    
     }
 }
 
