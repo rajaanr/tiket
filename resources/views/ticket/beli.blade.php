@@ -31,7 +31,7 @@
     </tbody>
   </table>
 </div>
-<form>
+<form action="{{ url('buy/'.$ticket->id)}}" method="POST">@csrf
     <div class="mb-3">
         <label for="" class=" form-label">Customer Name</label>
         <select name="id_users" class="form-select" aria-label="Default select example">@foreach ($users as $item)
@@ -39,7 +39,6 @@
                 @endforeach
           </select>
     </div>
-
     <button type="submit" class="mt-3 btn btn-primary">Beli Sekarang</button>
   </form>
 @endsection

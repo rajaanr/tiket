@@ -6,9 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/preloader.css') }}">
     @yield('style')
 </head>
 <body>
+    <div class="preloader" id="preloader">
+
+    </div>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container"><div>
           <a class="navbar-brand" href="#">Guci express</a>
@@ -41,7 +45,7 @@
                     <a class="nav-link" href="/login">Login</a>
                   </li>
               @endauth
-              
+
             </ul>
           </div>
         </div>
@@ -50,6 +54,13 @@
       <div class="mt-4 container">
         @yield('body')
       </div>
- <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>   
+ <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+ <script>
+    var loader = document.getElementById("preloader");
+
+    window.addEventListener("load", function () {
+        loader.style.display = "none" ;
+    })
+ </script>
 </body>
 </html>
