@@ -15,7 +15,14 @@ class TicketController extends Controller
 
 
     public function beli ($id) {
-        $user = User::all();
+        if (auth()->user()->role == "customer") {
+            $user = User::find($id);
+
+        } else {
+            $user = User::all();
+        }
+        
+        
         $ticket = Ticket::find($id);
         return view('ticket/beli',compact('ticket','user'));
     }
@@ -33,7 +40,7 @@ class TicketController extends Controller
         $ticket = new Ticket();
 
         $ticket->id_category = $request->input('id_category');
-        $ticket->nameticket = $request->input('name');
+        $ticket->name = $request->input('name');
         $ticket->date = $request->input('date');
         $ticket->quota = $request->input('quota');
         $ticket->status = 'post';
@@ -47,6 +54,10 @@ class TicketController extends Controller
 
 
     public function belitiket(Request $request){
+        $request->validate([
+            'qty' => 'required',
+            'amount' => 'required|min:4',
+        ]);
         $item = new Booking();
         $item->id_users = $request->input('id_users');
         $item->id_ticket = $request->input('id_ticket');

@@ -49,13 +49,21 @@
       </tr>
     </tbody>
   </table>
-  <div class="mb-3 tiket">
-    <label for="" class=" form-label">Customer Name</label>
-    <select name="id_users" class="form-select" aria-label="Default select example">@foreach ($user as $item)
-        <option value="{{ $item->id }}">{{ $item->name }}</option>
-            @endforeach
-      </select>
-</div>
+  @auth
+      @if (auth()->user()->role == 'customer')
+      <input hidden name="id_users" type="text" value="{{ auth()->user()->id }}">
+      @else
+      <div class="mb-3 tiket">
+        <label for="" class=" form-label">Customer Name</label>
+        <select name="id_users" class="form-select" aria-label="Default select example">@foreach ($user as $item)
+            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                @endforeach
+          </select>
+    </div>
+          
+      @endif
+  @endauth
+ 
 </div>
 <button type="submit" class="mt-3 btn btn-primary">Beli Sekarang</button>
 </form>

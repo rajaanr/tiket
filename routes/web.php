@@ -34,14 +34,16 @@ Route::get('/listuser',[UserController::class,'index']);
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard',[DashboardController::class,'index']);
+    Route::get('buy/{id}',[TicketController::class,'beli']);
+    Route::post('buy/{id}',[TicketController::class,'belitiket']);
+    Route::get('/buyticket',[DashboardController::class,'buy']);
 });
 Route::group(['middleware' => ['auth'=>'role:admin']], function(){
     Route::get('/addticket',[DashboardController::class,'add']);
     Route::post('/addticket',[TicketController::class,'storeticket']);
-    Route::get('/buyticket',[DashboardController::class,'buy']);
+   
     Route::get('/generate',[DashboardController::class,'generate']);
-    Route::get('buy/{id}',[TicketController::class,'beli']);
-    Route::post('buy/{id}',[TicketController::class,'belitiket']);
+  
 
 
 });
@@ -49,11 +51,13 @@ Route::group(['middleware' => ['auth'=>'role:operator']], function(){
     Route::get('/addticket2',[DashboardController::class,'add']);
     Route::post('/addticket@',[TicketController::class,'storeticket']);
     Route::get('/buyticket2',[DashboardController::class,'buy']);
-    Route::get('/buy-op',[TicketController::class,'beli']);
+    
+
 });
 Route::group(['middleware' => ['auth'=>'role:customer']], function(){
     Route::get('/buyticket3',[DashboardController::class,'buy']);
-    Route::get('/buy-cs',[TicketController::class,'beli']);
+    
+
 
 });
 

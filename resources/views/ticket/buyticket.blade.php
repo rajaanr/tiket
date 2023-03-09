@@ -2,10 +2,10 @@
 @section('isi')
 @auth
     @if (auth()->user()->role == 'admin')
-    <div class=" text-end"><a href="/addticket" class=" btn btn-dark">Buat Tiket</a></div>
+    <div class="mb-3 text-end"><a href="/addticket" class=" btn btn-dark">Buat Tiket</a></div>
     @endif
     @if (auth()->user()->role == 'operator')
-    <div class=" text-end"><a href="/addticket2" class=" btn btn-dark">Buat Tiket</a></div>
+    <div class=" mb-3 text-end"><a href="/addticket2" class=" btn btn-dark">Buat Tiket</a></div>
     @endif
 @endauth
 @if (session()->has('success'))
