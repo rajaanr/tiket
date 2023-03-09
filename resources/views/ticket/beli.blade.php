@@ -35,16 +35,11 @@
 
     <div class="mb-3">
         <label for="" class=" form-label">QTY</label>
-        <select name="id_users" class="form-select" aria-label="Default select example">
-             <option selected value="{{ $ticket->qty }}">1</option>
-             <option value="{{ $ticket->qty }}">2</option>
-             <option value="{{ $ticket->qty }}"">3</option>
-             <option value="{{ $ticket->qty }}">4</option>
-          </select>
+       <input type="text" name="qty" class="form-control rounded-0">
     </div>
     <div class="mb-3">
-        <label for="" class=" form-label">Customer Name</label>
-       <input type="text" name="amount" id="" value="{{ $ticket->price*$ticket->quota }}">
+        <label for="" class=" form-label">Amount</label>
+       <input type="text" name="amount" class="form-control rounded-0" id="" value="{{ $ticket->price*$ticket->qty }}">
     </div>
     <div class="mb-3">
         <label for="" class=" form-label">Customer Name</label>
