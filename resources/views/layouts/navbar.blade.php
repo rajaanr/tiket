@@ -7,6 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/preloader.css') }}">
+    <style>
+      body{
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(71,181,230,1) 100%);
+    background-position: cover;
+    background-repeat: no-repeat;
+      }
+    </style>
     @yield('style')
 </head>
 <body>
@@ -55,12 +63,5 @@
         @yield('body')
       </div>
  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
- <script>
-    var loader = document.getElementById("preloader");
-
-    window.addEventListener("load", function () {
-        loader.style.display = "none" ;
-    })
- </script>
 </body>
 </html>

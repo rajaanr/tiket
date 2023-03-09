@@ -8,6 +8,14 @@
     <div class=" text-end"><a href="/addticket2" class=" btn btn-dark">Buat Tiket</a></div>
     @endif
 @endauth
+@if (session()->has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
+      
+
   <div class="table-responsive mt-4">
     <table class="table table-striped table-sm table-bordered">
       <thead>

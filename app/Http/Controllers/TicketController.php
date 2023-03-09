@@ -10,24 +10,14 @@ use App\Models\User;
 
 class TicketController extends Controller
 {
-    public function store(Request $request){
-        $ticket = new Booking();
-        $ticket->name = $request->input('qty');
-        $ticket->email = $request->input('amount');
-        $ticket->status = 'booked';
-        $ticket->save();
-        $request->session()->flash('success','Register berhasil!');
-        return view('/');
-
-    }
+    
 
 
 
     public function beli ($id) {
-        $users = User::all();
-        $ticket = Ticket::join('booking', 'booking.id_ticket', '=', 'ticket.id')->get(['booking.amount','booking.qty']);
+        $user = User::all();
         $ticket = Ticket::find($id);
-        return view('ticket/beli',compact('ticket','users'));
+        return view('ticket/beli',compact('ticket','user'));
     }
 
 
@@ -43,7 +33,7 @@ class TicketController extends Controller
         $ticket = new Ticket();
 
         $ticket->id_category = $request->input('id_category');
-        $ticket->name = $request->input('name');
+        $ticket->nameticket = $request->input('name');
         $ticket->date = $request->input('date');
         $ticket->quota = $request->input('quota');
         $ticket->status = 'post';
@@ -56,8 +46,17 @@ class TicketController extends Controller
     }
 
 
-    public function belitiket(){
+    public function belitiket(Request $request){
         $item = new Booking();
+        $item->id_users = $request->input('id_users');
+        $item->id_ticket = $request->input('id_ticket');
+        $item->qty = $request->input('qty');
+        $item->amount =$request->input ('amount');
+        $item->officer = auth()->user()->id;
+        $item->status = 'booked';
+        $item->save();
+
+        return redirect('/buyticket')->with('success','Pembelian Berhasil');
 
     }
 }

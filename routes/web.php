@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth'=>'role:admin']], function(){
     Route::get('/buyticket',[DashboardController::class,'buy']);
     Route::get('/generate',[DashboardController::class,'generate']);
     Route::get('buy/{id}',[TicketController::class,'beli']);
+    Route::post('buy/{id}',[TicketController::class,'belitiket']);
 
 
 });
