@@ -25,6 +25,7 @@ class TicketController extends Controller
 
     public function beli ($id) {
         $users = User::all();
+        $ticket = Ticket::join('booking', 'booking.id_ticket', '=', 'ticket.id')->get(['booking.amount','booking.qty']);
         $ticket = Ticket::find($id);
         return view('ticket/beli',compact('ticket','users'));
     }
@@ -57,7 +58,7 @@ class TicketController extends Controller
 
     public function belitiket(){
         $item = new Booking();
-    
+
     }
 }
 
