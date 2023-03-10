@@ -37,26 +37,26 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('buy/{id}',[TicketController::class,'beli']);
     Route::post('buy/{id}',[TicketController::class,'belitiket']);
     Route::get('/buyticket',[DashboardController::class,'buy']);
+    Route::get('/buyticket',[DashboardController::class,'buy']);
 });
 Route::group(['middleware' => ['auth'=>'role:admin']], function(){
     Route::get('/addticket',[DashboardController::class,'add']);
     Route::post('/addticket',[TicketController::class,'storeticket']);
-   
+
     Route::get('/generate',[DashboardController::class,'generate']);
-  
+
 
 
 });
 Route::group(['middleware' => ['auth'=>'role:operator']], function(){
     Route::get('/addticket2',[DashboardController::class,'add']);
     Route::post('/addticket@',[TicketController::class,'storeticket']);
-    Route::get('/buyticket2',[DashboardController::class,'buy']);
-    
+
 
 });
 Route::group(['middleware' => ['auth'=>'role:customer']], function(){
-    Route::get('/buyticket3',[DashboardController::class,'buy']);
-    
+
+
 
 
 });

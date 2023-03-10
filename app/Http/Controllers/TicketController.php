@@ -10,19 +10,13 @@ use App\Models\User;
 
 class TicketController extends Controller
 {
-    
+
 
 
 
     public function beli ($id) {
-        if (auth()->user()->role == "customer") {
-            $user = User::find($id);
 
-        } else {
             $user = User::all();
-        }
-        
-        
         $ticket = Ticket::find($id);
         return view('ticket/beli',compact('ticket','user'));
     }
@@ -63,11 +57,16 @@ class TicketController extends Controller
         $item->id_ticket = $request->input('id_ticket');
         $item->qty = $request->input('qty');
         $item->amount =$request->input ('amount');
-        $item->officer = auth()->user()->id;
+        if (auth()->user()->role = "customer") {
+            $item->status = 'booked';
+        }
+            $item->officer = auth()->user()->id;
         $item->status = 'booked';
         $item->save();
-
         return redirect('/buyticket')->with('success','Pembelian Berhasil');
+
+
+
 
     }
 }

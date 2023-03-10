@@ -83,13 +83,13 @@
               </li>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/addticket2">
+                <a class="nav-link" href="/addticket">
                   <span data-feather="file" class="align-text-bottom"></span>
                 Tiket
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/buyticket2">
+                <a class="nav-link" href="/buyticket">
                   <span data-feather="file" class="align-text-bottom"></span>
                 Pemesanan Tiket
                 </a>
@@ -113,7 +113,7 @@
                   </li>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/buyticket3">
+                    <a class="nav-link" href="/buyticket">
                       <span data-feather="file" class="align-text-bottom"></span>
                     Pemesanan Tiket
                     </a>

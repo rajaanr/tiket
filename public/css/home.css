@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(../Poppins/Poppins-Bold.ttf);
+}
+
+
+body {
+    color:  black;
+    background-color: #eaeaea;
+
+}
+
+h1{
+    margin-top: 3rem;
+    font-family: 'Poppins-Bold' ;
+}
+
+ul{
+    color: #eaeaea;
+}
+
+img{
+border-radius: 15%;
+margin-left: 2rem;
+}
+
+.img {
+    display: flex;
+    flex-wrap: wrap;
+}
+

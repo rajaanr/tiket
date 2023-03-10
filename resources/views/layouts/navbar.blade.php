@@ -7,14 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/preloader.css') }}">
-    <style>
-      body{
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(71,181,230,1) 100%);
-    background-position: cover;
-    background-repeat: no-repeat;
-      }
-    </style>
     @yield('style')
 </head>
 <body>
@@ -23,7 +15,7 @@
     </div>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container"><div>
-          <a class="navbar-brand" href="#">Guci express</a>
+          <a class=" judul navbar-brand" href="#">Guci<span>Express</span></a>
         </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

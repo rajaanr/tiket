@@ -1,8 +1,22 @@
 @font-face {
-    font-family: face;
-    src: url('../Poppins/Poppins-Black.ttf');
+    font-family: 'Poppins';
+    src: url('../Poppins/Poppins-SemiBold.ttf');
 }
 
 *{
     font-family: 'Poppins',sans-serif;
+}
+
+html{
+    background-color: rgb(255, 255, 255);
+}
+
+
+.judul{
+font-style: oblique;
+}
+
+span{
+    color: #ffee00;
+    gap: 2rem;
 }

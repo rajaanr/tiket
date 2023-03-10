@@ -51,26 +51,27 @@
   </table>
   @auth
       @if (auth()->user()->role == 'customer')
-      <input hidden name="id_users" type="text" value="{{ auth()->user()->id }}">
+      <input name="id_users" type="text" value="{{ auth()->user()->id }}">
       @else
       <div class="mb-3 tiket">
         <label for="" class=" form-label">Customer Name</label>
-        <select name="id_users" class="form-select" aria-label="Default select example">@foreach ($user as $item)
+        <select name="id_users" class="form-select" aria-label="Default select example">
+            @foreach ($user as $item)
             <option value="{{ $item->id }}">{{ $item->name }}</option>
-                @endforeach
+            @endforeach
           </select>
     </div>
-          
+
       @endif
   @endauth
- 
+
 </div>
 <button type="submit" class="mt-3 btn btn-primary">Beli Sekarang</button>
 </form>
 
 
- 
-  
+
+
 
 @endsection
 @section('script')
@@ -89,6 +90,7 @@
         // Menampilkan hasil pada input yang dituju
         document.getElementById('result').value = result;
   }
+
 </script>
-    
+
 @endsection
