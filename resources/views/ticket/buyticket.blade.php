@@ -22,7 +22,7 @@
         <tr>
           <th scope="col">id</th>
           <th scope="col">Kategori</th>
-          <th scope="col">Nama</th>
+          <th scope="col">Status</th>
           <th scope="col">Quota</th>
           <th scope="col">Price</th>
           <th scope="col">Date</th>
@@ -36,7 +36,7 @@
           <tr>
             <td>{{ $item->id }}</td>
             <td>{{ $item->category }}</td>
-            <td>{{ $item->name }}</td>
+            <td>{{ $item->status }}</td>
             <td>{{ $item->quota }}</td>
             <td>{{ $item->price }}</td>
             <td>{{ $item->date }}</td>
